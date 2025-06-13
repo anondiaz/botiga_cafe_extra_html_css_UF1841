@@ -40,6 +40,10 @@ header img {
 section > div {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 550px) {
+  display: block;
+  }
 }
 
 section > div > div {
@@ -47,17 +51,27 @@ section > div > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
   img {
     width: 100%;
-    /* display: block; */
+    transition: transform 1000ms ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   p {
-    font-size: 1.25rem;
+    font-size: clamp(0.5rem,0.8vw + 1rem,1.25rem);
+
   }
   h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem,2vw + 1rem,3.5rem);
     margin-bottom: 1rem;
   }
+  @media (max-width: 550px){
+    width: 100%;
+  }
+
 }
 
 .desktop_xl {
@@ -79,8 +93,19 @@ section > div > div {
   padding-right: 4rem;
 }
 
+.texto_derecha, 
+.texto_izquierda {
+  @media ( max-width: 1000px) {
+    padding: 0 4vw;
+  }
+  @media ( max-width: 550px) {
+    text-align: center;
+  }
+}
+
 h1,
-h2
+h2,
+h3
  {
   font-family: "Dancing Script", serif;
 }
@@ -168,4 +193,6 @@ section > h2 {
   }
 }
 
-
+.invertir {
+flex-direction: row-reverse;
+}
